@@ -24,7 +24,7 @@ app.post("/product/:id",function(req, res){
         "price": req.body.price
     };
     products.push(obj);
-    res.send("added product: " + product.name);
+    res.json("added product: " + product.name);
 });
 app.put("/product/:id",function(req, res){
     let ids = parseInt(req.params.id);
@@ -39,7 +39,7 @@ app.Delete("/product/:id",function(req, res){
     const product = products.find(p=>p.id == ids);
     const index = products.indexOf(product);
     products.splice(index,1);
-    res.send(products);
+    res.json(products);
 });
 
 app.listen(3000);
